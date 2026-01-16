@@ -1,0 +1,125 @@
+.education {
+  .education-content {
+    max-width: 700px;
+    margin: 60px auto 0;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .education-card {
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(14, 165, 233, 0.1);
+    border-radius: 20px;
+    padding: 50px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+      padding: 40px 30px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.05), rgba(34, 211, 238, 0.05));
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    &:hover {
+      border-color: var(--primary);
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(14, 165, 233, 0.3);
+
+      &::before {
+        opacity: 1;
+      }
+
+      .education-icon {
+        transform: scale(1.1) rotate(10deg);
+        background: linear-gradient(135deg, var(--accent), var(--primary));
+      }
+    }
+
+    .education-icon {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      flex-shrink: 0;
+      transition: all 0.4s ease;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 10px 30px rgba(14, 165, 233, 0.3);
+    }
+
+    .education-info {
+      position: relative;
+      z-index: 1;
+
+      .university-name {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 10px;
+
+        @media (max-width: 768px) {
+          font-size: 1.5rem;
+        }
+      }
+
+      .degree {
+        font-size: 1.3rem;
+        font-weight: 600;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 8px;
+
+        @media (max-width: 768px) {
+          font-size: 1.1rem;
+        }
+      }
+
+      .field {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        margin-bottom: 15px;
+      }
+
+      .period {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+
+        @media (max-width: 768px) {
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

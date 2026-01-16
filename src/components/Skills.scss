@@ -1,0 +1,109 @@
+.skills {
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  .skill-card {
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(14, 165, 233, 0.1);
+    border-radius: 20px;
+    padding: 40px 30px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(34, 211, 238, 0.1));
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    &.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    &:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: var(--primary);
+      box-shadow: 0 20px 40px rgba(14, 165, 233, 0.2);
+
+      &::before {
+        opacity: 1;
+      }
+
+      .skill-icon {
+        transform: scale(1.1) rotate(5deg);
+        color: var(--accent);
+      }
+    }
+
+    .skill-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      margin-bottom: 20px;
+      transition: all 0.4s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skill-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skill-items {
+      list-style: none;
+      position: relative;
+      z-index: 1;
+
+      li {
+        color: var(--text-muted);
+        padding: 8px 0;
+        position: relative;
+        padding-left: 20px;
+        transition: all 0.3s ease;
+
+        &::before {
+          content: '▹';
+          position: absolute;
+          left: 0;
+          color: var(--primary);
+          font-size: 1.2rem;
+        }
+
+        &:hover {
+          color: var(--primary);
+          transform: translateX(5px);
+        }
+      }
+    }
+  }
+}

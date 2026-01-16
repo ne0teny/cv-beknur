@@ -1,0 +1,240 @@
+@use "sass:math";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #0ea5e9;
+  --secondary: #06b6d4;
+  --accent: #22d3ee;
+  --dark: #0f172a;
+  --dark-light: #1e293b;
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--dark);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+.app {
+  position: relative;
+  min-height: 100vh;
+}
+
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle at center,
+      rgba(14, 165, 233, 0.1) 0%,
+      transparent 50%
+    );
+    animation: rotate 20s linear infinite;
+  }
+
+  .gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    animation: float 8s ease-in-out infinite;
+
+    &.orb-1 {
+      width: 500px;
+      height: 500px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    &.orb-2 {
+      width: 400px;
+      height: 400px;
+      background: linear-gradient(135deg, var(--secondary), var(--accent));
+      bottom: 20%;
+      right: 10%;
+      animation-delay: -4s;
+    }
+
+    &.orb-3 {
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      top: 50%;
+      left: 50%;
+      animation-delay: -2s;
+    }
+  }
+
+  .particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: particle-float 15s infinite;
+
+      @for $i from 1 through 30 {
+        &:nth-child(#{$i}) {
+          left: math.random(100) * 1%;
+          top: math.random(100) * 1%;
+          animation-delay: math.random(10) * -1s;
+          animation-duration: (10 + math.random(10)) * 1s;
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(30px, -30px);
+  }
+  66% {
+    transform: translate(-20px, 20px);
+  }
+}
+
+@keyframes particle-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(50px, -50px) scale(1.5);
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.3;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(50px);
+
+  &.visible {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+
+  &.visible {
+    animation: slideInLeft 0.8s ease-out forwards;
+  }
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+
+  &.visible {
+    animation: slideInRight 0.8s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+section {
+  position: relative;
+  padding: 100px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+  }
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 60px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+}

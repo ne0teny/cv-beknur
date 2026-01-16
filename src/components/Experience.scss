@@ -1,0 +1,217 @@
+.experience {
+  .timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 60px auto 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--primary), var(--accent));
+      transform: translateX(-50%);
+
+      @media (max-width: 968px) {
+        left: 30px;
+      }
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 40px;
+      opacity: 0;
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+
+      @media (max-width: 968px) {
+        width: 100%;
+        padding: 40px 40px 40px 80px;
+      }
+
+      &.left {
+        left: 0;
+        transform: translateX(-50px);
+
+        @media (max-width: 968px) {
+          transform: translateY(30px);
+        }
+
+        .timeline-content {
+          text-align: right;
+
+          @media (max-width: 968px) {
+            text-align: left;
+          }
+        }
+
+        .timeline-icon {
+          right: -60px;
+
+          @media (max-width: 968px) {
+            left: 0;
+            right: auto;
+          }
+        }
+      }
+
+      &.right {
+        left: 50%;
+        transform: translateX(50px);
+
+        @media (max-width: 968px) {
+          left: 0;
+          transform: translateY(30px);
+        }
+
+        .timeline-icon {
+          left: -60px;
+
+          @media (max-width: 968px) {
+            left: 0;
+          }
+        }
+      }
+
+      &.visible {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+      }
+
+      .timeline-content {
+        position: relative;
+      }
+
+      .timeline-icon {
+        position: absolute;
+        top: 0;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        box-shadow: 0 0 0 4px var(--dark), 0 0 0 6px var(--primary);
+        transition: all 0.3s ease;
+        z-index: 1;
+      }
+
+      &:hover .timeline-icon {
+        transform: scale(1.2) rotate(180deg);
+        box-shadow: 0 0 0 4px var(--dark), 0 0 0 8px var(--primary);
+      }
+
+      .job-card {
+        background: rgba(30, 41, 59, 0.5);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(14, 165, 233, 0.1);
+        border-radius: 20px;
+        padding: 30px;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, rgba(14, 165, 233, 0.05), rgba(34, 211, 238, 0.05));
+          opacity: 0;
+          transition: opacity 0.4s ease;
+        }
+
+        &:hover {
+          border-color: var(--primary);
+          transform: translateY(-5px);
+          box-shadow: 0 20px 40px rgba(14, 165, 233, 0.2);
+
+          &::before {
+            opacity: 1;
+          }
+        }
+
+        .job-position {
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: var(--text);
+          margin-bottom: 10px;
+          position: relative;
+          z-index: 1;
+        }
+
+        .job-company {
+          font-size: 1.2rem;
+          font-weight: 500;
+          background: linear-gradient(135deg, var(--primary), var(--accent));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          margin-bottom: 15px;
+          position: relative;
+          z-index: 1;
+        }
+
+        .job-meta {
+          display: flex;
+          gap: 20px;
+          margin-bottom: 15px;
+          flex-wrap: wrap;
+          position: relative;
+          z-index: 1;
+
+          .job-period {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+          }
+
+          .job-location {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+          }
+        }
+
+        .job-description {
+          color: var(--text-muted);
+          line-height: 1.8;
+          margin-bottom: 20px;
+          position: relative;
+          z-index: 1;
+        }
+
+        .job-stack {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          position: relative;
+          z-index: 1;
+
+          .tech-tag {
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            transition: all 0.3s ease;
+
+            &:hover {
+              background: var(--primary);
+              color: white;
+              transform: translateY(-2px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
