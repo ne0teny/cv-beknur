@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Github, Linkedin, Mail, Phone } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 import './Hero.scss';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { t, isChanging } = useLanguage();
 
   useEffect(() => {
     setIsVisible(true);
@@ -14,23 +16,30 @@ const Hero = () => {
       <div className={`hero-content ${isVisible ? 'visible' : ''}`}>
         <div className="hero-text">
           <h1 className="hero-title">
-            <span className="greeting">Привет, я</span>
-            <span className="name">Beknur Sailaukhan</span>
+            <span className={`greeting text-transition ${isChanging ? 'fade-out' : 'fade-in'}`}>
+              {t.hero.greeting}
+            </span>
+            <span className={`name text-transition ${isChanging ? 'fade-out' : 'fade-in'}`}>
+              {t.hero.name}
+            </span>
           </h1>
-          <h2 className="hero-subtitle">Middle Frontend Developer</h2>
-          <p className="hero-description">
-            Фронтенд-разработчик с 4-летним опытом. Создаю веб и мобильные приложения
-            на React, React Native, Vue и Flutter. Люблю чистый код и удобные интерфейсы.
+          <h2 className={`hero-subtitle text-transition ${isChanging ? 'fade-out' : 'fade-in'}`}>
+            {t.hero.subtitle}
+          </h2>
+          <p className={`hero-description text-transition ${isChanging ? 'fade-out' : 'fade-in'}`}>
+            {t.hero.description}
           </p>
           <div className="hero-location">
-            <span>📍 Алматы, Казахстан</span>
+            <span className={`text-transition ${isChanging ? 'fade-out' : 'fade-in'}`}>
+              {t.hero.location}
+            </span>
           </div>
           <div className="hero-actions">
-            <a href="#contact" className="btn btn-primary">
-              Связаться
+            <a href="#contact" className={`btn btn-primary text-transition ${isChanging ? 'fade-out' : 'fade-in'}`}>
+              {t.hero.contactBtn}
             </a>
-            <a href="#experience" className="btn btn-secondary">
-              Опыт работы
+            <a href="#experience" className={`btn btn-secondary text-transition ${isChanging ? 'fade-out' : 'fade-in'}`}>
+              {t.hero.experienceBtn}
             </a>
           </div>
           <div className="hero-socials">

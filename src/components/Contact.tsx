@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { Mail, Phone, Linkedin, MapPin } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 import './Contact.scss';
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { t, language, isChanging } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -32,7 +34,7 @@ const Contact = () => {
     },
     {
       icon: <Phone size={28} />,
-      title: 'Телефон',
+      title: t.contact.phone,
       value: '+7 765 311 600',
       link: 'tel:+77765311600'
     },
@@ -44,19 +46,20 @@ const Contact = () => {
     },
     {
       icon: <MapPin size={28} />,
-      title: 'Локация',
-      value: 'Алматы, Казахстан',
+      title: t.contact.location,
+      value: language === 'ru' ? 'Алматы, Казахстан' : 'Almaty, Kazakhstan',
       link: null
     }
   ];
 
   return (
     <section id="contact" className="contact" ref={sectionRef}>
-      <h2 className="section-title">Контакты</h2>
+      <h2 className={`section-title text-transition ${isChanging ? 'fade-out' : 'fade-in'}`}>
+        {t.contact.title}
+      </h2>
       <div className={`contact-content ${isVisible ? 'visible' : ''}`}>
-        <p className="contact-description">
-          Открыт для интересных проектов и предложений о работе.
-          Свяжитесь со мной любым удобным способом!
+        <p className={`contact-description text-transition ${isChanging ? 'fade-out' : 'fade-in'}`}>
+          {t.contact.description}
         </p>
         <div className="contact-grid">
           {contactMethods.map((method, index) => (
@@ -73,14 +76,22 @@ const Contact = () => {
                   className="contact-link"
                 >
                   <div className="contact-icon">{method.icon}</div>
-                  <h3 className="contact-title">{method.title}</h3>
-                  <p className="contact-value">{method.value}</p>
+                  <h3 className={`contact-title text-transition ${isChanging ? 'fade-out' : 'fade-in'}`}>
+                    {method.title}
+                  </h3>
+                  <p className={`contact-value text-transition ${isChanging ? 'fade-out' : 'fade-in'}`}>
+                    {method.value}
+                  </p>
                 </a>
               ) : (
                 <div className="contact-link">
                   <div className="contact-icon">{method.icon}</div>
-                  <h3 className="contact-title">{method.title}</h3>
-                  <p className="contact-value">{method.value}</p>
+                  <h3 className={`contact-title text-transition ${isChanging ? 'fade-out' : 'fade-in'}`}>
+                    {method.title}
+                  </h3>
+                  <p className={`contact-value text-transition ${isChanging ? 'fade-out' : 'fade-in'}`}>
+                    {method.value}
+                  </p>
                 </div>
               )}
             </div>
@@ -88,7 +99,9 @@ const Contact = () => {
         </div>
       </div>
       <div className="footer">
-        <p>© 2026 Beknur Sailaukhan. Создано с React, TypeScript и SCSS</p>
+        <p className={`text-transition ${isChanging ? 'fade-out' : 'fade-in'}`}>
+          {t.contact.footer}
+        </p>
       </div>
     </section>
   );

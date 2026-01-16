@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Code2, Smartphone, Layout, Database, GitBranch, Wrench } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 import './Skills.scss';
 
 interface Skill {
@@ -44,6 +45,7 @@ const skills: Skill[] = [
 const Skills = () => {
   const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const { t, isChanging } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -67,7 +69,9 @@ const Skills = () => {
 
   return (
     <section id="skills" className="skills">
-      <h2 className="section-title">Навыки</h2>
+      <h2 className={`section-title text-transition ${isChanging ? 'fade-out' : 'fade-in'}`}>
+        {t.skills.title}
+      </h2>
       <div className="skills-grid">
         {skills.map((skill, index) => (
           <div
