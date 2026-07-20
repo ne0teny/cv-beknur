@@ -6,6 +6,13 @@
   align-items: center;
   padding: 100px 20px 50px;
   position: relative;
+  width: 100%;
+  overflow-x: hidden;
+
+  @media (max-width: 768px) {
+    padding: 90px 16px 40px;
+    min-height: auto;
+  }
 
   .hero-content {
     display: grid;
@@ -31,6 +38,7 @@
   }
 
   .hero-text {
+    min-width: 0;
     .greeting {
       display: block;
       font-size: 1.2rem;
@@ -51,7 +59,11 @@
       animation: slideUp 0.8s ease-out 0.5s both;
 
       @media (max-width: 768px) {
-        font-size: 2.5rem;
+        font-size: 2rem;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 1.75rem;
       }
     }
   }
@@ -74,6 +86,10 @@
     color: var(--text-muted);
     margin-bottom: 20px;
     animation: slideUp 0.8s ease-out 0.9s both;
+
+    @media (max-width: 480px) {
+      font-size: 1rem;
+    }
   }
 
   .hero-location {
@@ -95,6 +111,11 @@
 
     @media (max-width: 480px) {
       flex-direction: column;
+      align-items: stretch;
+
+      .btn {
+        text-align: center;
+      }
     }
   }
 
@@ -153,7 +174,8 @@
 
   .hero-socials {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 16px;
     animation: slideUp 0.8s ease-out 1.5s both;
 
     @media (max-width: 968px) {
@@ -182,6 +204,8 @@
 
   .hero-image {
     animation: slideInRight 0.8s ease-out 0.5s both;
+    min-width: 0;
+    width: 100%;
 
     @media (max-width: 968px) {
       order: -1;
@@ -192,6 +216,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      width: 100%;
+      max-width: 100%;
 
       .image-glow {
         position: absolute;
@@ -202,6 +228,11 @@
         filter: blur(80px);
         opacity: 0.4;
         animation: pulse 3s ease-in-out infinite;
+
+        @media (max-width: 480px) {
+          width: 200px;
+          height: 200px;
+        }
       }
 
       .code-snippet {
@@ -212,6 +243,15 @@
         border-radius: 20px;
         padding: 30px;
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+
+        @media (max-width: 480px) {
+          padding: 20px 16px;
+          border-radius: 16px;
+        }
 
         pre {
           color: var(--text);
@@ -219,6 +259,13 @@
           font-size: 0.95rem;
           line-height: 1.8;
           margin: 0;
+          white-space: pre-wrap;
+          word-break: break-word;
+
+          @media (max-width: 480px) {
+            font-size: 0.8rem;
+            line-height: 1.6;
+          }
         }
       }
     }
@@ -230,6 +277,10 @@
     left: 50%;
     transform: translateX(-50%);
     animation: fadeIn 1s ease-out 2s both;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
 
     .mouse {
       width: 30px;

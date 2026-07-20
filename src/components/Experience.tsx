@@ -15,29 +15,44 @@ interface Job {
 
 const getExperiences = (t: Translations): Job[] => [
   {
-    ...t.jobs.resmi,
-    stack: ['Flutter', 'Flutter Flavor', 'React Native', 'Vue.js', 'C# (ASP)', 'Python (Django)']
+    ...t.jobs.nomalytica,
+    stack: [
+      'NestJS',
+      'TypeScript',
+      'PostgreSQL',
+      'Redis',
+      'MongoDB',
+      'React',
+      'Flutter',
+      'Vite',
+      'Tauri',
+      'SCSS',
+    ],
+  },
+  {
+    ...t.jobs.respublica,
+    stack: ['Flutter', 'Flutter Flavor', 'React Native', 'Vue.js', 'Python (Django)', 'React'],
   },
   {
     ...t.jobs.media,
-    stack: ['Flutter', 'Vue3', 'TypeScript', 'React Native', 'C# (ASP)']
+    stack: ['Flutter', 'Vue3', 'TypeScript', 'NestJS'],
   },
   {
     ...t.jobs.ai,
-    stack: ['Flutter', 'React Native', 'TypeScript']
+    stack: ['React Native', 'Flutter', 'Python (FastAPI)', 'Vue3'],
   },
   {
     ...t.jobs.unity,
-    stack: ['Vue', 'Flutter', 'PHP (Laravel)', 'React Native']
+    stack: ['Vue', 'Flutter', 'PHP (Laravel)', 'React Native'],
   },
   {
     ...t.jobs.blacktree,
-    stack: ['React', 'React Native', 'Flutter', 'Electron', 'Elixir']
+    stack: ['React', 'Python (Django)', 'Flutter', 'Electron', 'Elixir'],
   },
   {
     ...t.jobs.invivo,
-    stack: ['React', 'Three.js', 'jQuery']
-  }
+    stack: ['React', 'Three.js', 'jQuery'],
+  },
 ];
 
 const Experience = () => {

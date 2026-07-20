@@ -28,7 +28,12 @@
     @media (max-width: 768px) {
       flex-direction: column;
       text-align: center;
-      padding: 40px 30px;
+      padding: 40px 24px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 28px 16px;
+      gap: 24px;
     }
 
     &::before {

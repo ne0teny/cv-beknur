@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Github, Linkedin, Mail, Phone } from 'lucide-react';
+import { Linkedin, Mail, MessageCircle, Phone } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import './Hero.scss';
 
@@ -44,7 +44,7 @@ const Hero = () => {
           </div>
           <div className="hero-socials">
             <a
-              href="mailto:sailaukhanbeknur@gmail.com"
+              href="mailto:beknurbloody@gmail.com"
               className="social-link"
               aria-label="Email"
             >
@@ -56,6 +56,15 @@ const Hero = () => {
               aria-label="Phone"
             >
               <Phone size={24} />
+            </a>
+            <a
+              href="https://t.me/idhoroso"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+              aria-label="Telegram"
+            >
+              <MessageCircle size={24} />
             </a>
             <a
               href="https://www.linkedin.com/in/beknursailaukhan-6505712ba"
@@ -75,9 +84,9 @@ const Hero = () => {
               <pre>
 {`const developer = {
   name: "Beknur",
-  role: "Frontend Dev",
-  experience: "4 years",
-  loves: ["React", "TypeScript"]
+  role: "Fullstack Dev",
+  experience: "4y 8m",
+  loves: ["React", "Flutter"]
 };`}
               </pre>
             </div>

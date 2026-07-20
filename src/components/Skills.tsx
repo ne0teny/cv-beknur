@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Code2, Smartphone, Layout, Database, GitBranch, Wrench } from 'lucide-react';
+import { Code2, Smartphone, Layout, Database, Monitor, GitBranch } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import './Skills.scss';
 
@@ -13,33 +13,33 @@ const skills: Skill[] = [
   {
     icon: <Code2 size={32} />,
     title: 'Frontend',
-    items: ['React', 'Vue 2/3', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3/SCSS']
+    items: ['React', 'Vue 2/3', 'TypeScript', 'JavaScript', 'Vite', 'SCSS', 'HTML5'],
   },
   {
     icon: <Smartphone size={32} />,
     title: 'Mobile',
-    items: ['React Native', 'Flutter', 'Cross-platform']
-  },
-  {
-    icon: <Layout size={32} />,
-    title: 'Styling',
-    items: ['Tailwind CSS', 'Styled Components', 'Responsive Design', 'Pixel Perfect']
+    items: ['Flutter', 'Flutter Flavor', 'React Native', 'Cross-platform'],
   },
   {
     icon: <Database size={32} />,
-    title: 'Backend',
-    items: ['Python/Django', 'C#/ASP.NET', 'PHP/Laravel', 'REST API']
+    title: 'Backend & DB',
+    items: ['NestJS', 'Python (Django, FastAPI)', 'PostgreSQL', 'Redis', 'MongoDB', 'Elixir'],
+  },
+  {
+    icon: <Monitor size={32} />,
+    title: 'Desktop',
+    items: ['Tauri', 'Electron', 'Cross-platform apps'],
+  },
+  {
+    icon: <Layout size={32} />,
+    title: 'Other',
+    items: ['PHP (Laravel)', 'Three.js', 'REST API', 'Responsive Design'],
   },
   {
     icon: <GitBranch size={32} />,
-    title: 'Version Control',
-    items: ['Git', 'GitHub', 'GitLab', 'Code Review']
-  },
-  {
-    icon: <Wrench size={32} />,
     title: 'Tools',
-    items: ['Webpack', 'Vite', 'Firebase', 'Zustand', 'Redux']
-  }
+    items: ['Git', 'GitHub', 'GitLab', 'Code Review', 'Keitaro'],
+  },
 ];
 
 const Skills = () => {

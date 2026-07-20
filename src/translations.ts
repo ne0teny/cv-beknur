@@ -26,6 +26,8 @@ export interface Translations {
     description: string;
     phone: string;
     location: string;
+    telegram: string;
+    whatsapp: string;
     footer: string;
   };
   jobs: {
@@ -44,9 +46,10 @@ export const translations: Record<Language, Translations> = {
     hero: {
       greeting: 'Привет, я',
       name: 'Beknur Sailaukhan',
-      subtitle: 'Middle Frontend Developer',
-      description: 'Фронтенд-разработчик с 4-летним опытом. Создаю веб и мобильные приложения на React, React Native, Vue и Flutter. Люблю чистый код и удобные интерфейсы.',
-      location: '📍 Алматы, Казахстан',
+      subtitle: 'Fullstack-разработчик',
+      description:
+        'Fullstack-разработчик с опытом 4 года и 8 месяцев. Создаю веб-сайты, мобильные и десктопные приложения на React, Flutter, NestJS и Tauri. Люблю чистый код и удобные интерфейсы.',
+      location: '📍 Казахстан',
       contactBtn: 'Связаться',
       experienceBtn: 'Опыт работы',
     },
@@ -63,53 +66,70 @@ export const translations: Record<Language, Translations> = {
     },
     contact: {
       title: 'Контакты',
-      description: 'Открыт для интересных проектов и предложений о работе. Свяжитесь со мной любым удобным способом!',
+      description:
+        'Открыт для интересных проектов и предложений о работе. Свяжитесь со мной любым удобным способом!',
       phone: 'Телефон',
       location: 'Локация',
+      telegram: 'Telegram',
+      whatsapp: 'WhatsApp',
       footer: '© 2026 Beknur Sailaukhan. Создано с React, TypeScript и SCSS',
     },
     jobs: {
-      resmi: {
-        company: 'Group of Companies Resmi',
-        position: 'Flutter Developer',
-        period: 'май 2025 - декабрь 2025',
-        location: 'Алматы, Казахстан',
-        description: 'Работал мобильным разработчиком на Flutter в финтех компании, поддерживал существующие проекты на React Native и мигрировал его код на Flutter. Занимался поддержкой сайта на Vue, работал с бэкендом и рефакторил код.',
+      nomalytica: {
+        company: 'Nomalytica',
+        position: 'Fullstack-разработчик',
+        period: 'февраль 2026 — июль 2026',
+        location: 'Казахстан',
+        description:
+          'Работал над сайтами и десктопными приложениями на Tauri и мобильными на Flutter.',
+      },
+      respublica: {
+        company: 'Финансовый холдинг «Республика»',
+        position: 'Flutter-разработчик / Python-Backend',
+        period: 'май 2025 — январь 2026',
+        location: 'Казахстан',
+        description:
+          'Работал мобильным разработчиком на Flutter в финтех-компании, поддерживал существующие проекты на React Native и мигрировал их код на Flutter. Занимался поддержкой сайта на Vue, часто работал с бэкендом из-за отсутствия бэкендера и рефакторил код. Также поддерживал сайты на React.',
       },
       media: {
         company: '1st Media Group',
-        position: 'Frontend Web Developer',
-        period: 'сентябрь 2024 - апрель 2025',
-        location: 'Алматы, Казахстан',
-        description: 'Занимался поддержкой существующих проектов на Vue и React Native. Создавал новые проекты на Vue и Flutter.',
+        position: 'Fullstack-разработчик',
+        period: 'сентябрь 2024 — апрель 2025',
+        location: 'Казахстан',
+        description:
+          'Занимался поддержкой существующих проектов, написанных в основном на Vue и NestJS. Также создавал новые проекты на Flutter.',
       },
       ai: {
-        company: 'AI SYSTEMS LTD',
-        position: 'Frontend Developer',
-        period: 'март 2024 - август 2024',
-        location: 'Алматы, Казахстан',
-        description: 'Создавал веб-сайты и мобильные приложения на Flutter и React Native.',
+        company: 'Частная компания AI SYSTEMS LTD.',
+        position: 'Мобильный разработчик',
+        period: 'март 2024 — август 2024',
+        location: 'Казахстан',
+        description:
+          'Работал на должности Mobile developer, создавал мобильные приложения на Flutter и поддерживал сайты.',
       },
       unity: {
-        company: 'Unity consulting',
-        position: 'Frontend Web Developer',
-        period: 'апрель 2023 - март 2024',
-        location: 'Алматы, Казахстан',
-        description: 'Занимался версткой сайтов и доработкой существующих. Работал с трафиком в Keitaro. Поддерживал мобильное приложение на React Native и переписывал его под Flutter. Занимался дизайном.',
+        company: 'Unity Consulting',
+        position: 'Frontend-разработчик',
+        period: 'апрель 2023 — март 2024',
+        location: 'Казахстан',
+        description:
+          'Занимался вёрсткой сайтов и доработкой существующих. Работал с трафиком в Keitaro. Под конец начал поддержку мобильного приложения на React Native и переписывал его под Flutter. Также занимался дизайном сайтов и приложений.',
       },
       blacktree: {
-        company: 'BLACK TREE GAMING LIMITED',
-        position: 'Frontend Web Developer',
-        period: 'апрель 2022 - март 2023',
-        location: 'Лондон, Великобритания',
-        description: 'Создавал новые сайты и дорабатывал легаси. Занимался десктопными и мобильными приложениями. Десктоп писали на Electron.',
+        company: 'Black Tree Gaming Ltd',
+        position: 'Fullstack-разработчик',
+        period: 'апрель 2022 — март 2023',
+        location: 'Казахстан',
+        description:
+          'Создавал новые сайты и дорабатывал legacy-проекты. Занимался десктопными приложениями на Electron и мобильными приложениями на Flutter.',
       },
       invivo: {
-        company: 'ТОО «INVIVO»',
+        company: 'Инвиво, Лаборатория',
         position: 'HTML-верстальщик',
-        period: 'декабрь 2021 - март 2022',
-        location: 'Алматы, Казахстан',
-        description: 'Верстал лендинги и дорабатывал существующие сайты. Работал с legacy кодом и внедрял разные технологии. Работал с 3D.',
+        period: 'декабрь 2021 — март 2022',
+        location: 'Казахстан',
+        description:
+          'Вёрстка лендингов и доработка существующих сайтов. Работал с legacy-кодом и внедрял разные технологии. Также приходилось работать с 3D.',
       },
     },
   },
@@ -117,9 +137,10 @@ export const translations: Record<Language, Translations> = {
     hero: {
       greeting: 'Hi, I am',
       name: 'Beknur Sailaukhan',
-      subtitle: 'Middle Frontend Developer',
-      description: 'Frontend developer with 4 years of experience. Creating web and mobile applications with React, React Native, Vue and Flutter. I love clean code and user-friendly interfaces.',
-      location: '📍 Almaty, Kazakhstan',
+      subtitle: 'Fullstack Developer',
+      description:
+        'Fullstack developer with 4 years and 8 months of experience. Building websites, mobile and desktop applications with React, Flutter, NestJS and Tauri. I love clean code and user-friendly interfaces.',
+      location: '📍 Kazakhstan',
       contactBtn: 'Contact',
       experienceBtn: 'Work Experience',
     },
@@ -136,53 +157,70 @@ export const translations: Record<Language, Translations> = {
     },
     contact: {
       title: 'Contact',
-      description: 'Open to interesting projects and job offers. Contact me in any convenient way!',
+      description:
+        'Open to interesting projects and job offers. Contact me in any convenient way!',
       phone: 'Phone',
       location: 'Location',
+      telegram: 'Telegram',
+      whatsapp: 'WhatsApp',
       footer: '© 2026 Beknur Sailaukhan. Built with React, TypeScript and SCSS',
     },
     jobs: {
-      resmi: {
-        company: 'Group of Companies Resmi',
-        position: 'Flutter Developer',
-        period: 'May 2025 - December 2025',
-        location: 'Almaty, Kazakhstan',
-        description: 'Worked as a mobile developer on Flutter in a fintech company, maintained existing React Native projects and migrated their code to Flutter. Maintained a Vue website, worked with backend and refactored code.',
+      nomalytica: {
+        company: 'Nomalytica',
+        position: 'Fullstack Developer',
+        period: 'February 2026 — July 2026',
+        location: 'Kazakhstan',
+        description:
+          'Worked on websites, desktop applications with Tauri, and mobile apps with Flutter.',
+      },
+      respublica: {
+        company: 'Financial Holding «Respublica»',
+        position: 'Flutter Developer / Python Backend',
+        period: 'May 2025 — January 2026',
+        location: 'Kazakhstan',
+        description:
+          'Worked as a Flutter mobile developer in a fintech company, maintained existing React Native projects and migrated their code to Flutter. Maintained a Vue website, frequently worked with the backend due to the lack of a backend developer and refactored code. Also maintained React websites.',
       },
       media: {
         company: '1st Media Group',
-        position: 'Frontend Web Developer',
-        period: 'September 2024 - April 2025',
-        location: 'Almaty, Kazakhstan',
-        description: 'Maintained existing Vue and React Native projects. Created new projects on Vue and Flutter.',
+        position: 'Fullstack Developer',
+        period: 'September 2024 — April 2025',
+        location: 'Kazakhstan',
+        description:
+          'Maintained existing projects mostly built with Vue and NestJS. Also created new projects with Flutter.',
       },
       ai: {
-        company: 'AI SYSTEMS LTD',
-        position: 'Frontend Developer',
-        period: 'March 2024 - August 2024',
-        location: 'Almaty, Kazakhstan',
-        description: 'Created websites and mobile applications on Flutter and React Native.',
+        company: 'Private Company AI SYSTEMS LTD.',
+        position: 'Mobile Developer',
+        period: 'March 2024 — August 2024',
+        location: 'Kazakhstan',
+        description:
+          'Worked as a Mobile developer, created mobile applications with Flutter and maintained websites.',
       },
       unity: {
-        company: 'Unity consulting',
-        position: 'Frontend Web Developer',
-        period: 'April 2023 - March 2024',
-        location: 'Almaty, Kazakhstan',
-        description: 'Worked on website layout and improvement of existing ones. Worked with traffic in Keitaro. Maintained a React Native mobile app and rewrote it to Flutter. Worked on design.',
+        company: 'Unity Consulting',
+        position: 'Frontend Developer',
+        period: 'April 2023 — March 2024',
+        location: 'Kazakhstan',
+        description:
+          'Worked on website layout and improvement of existing sites. Managed traffic in Keitaro. Later started maintaining a React Native mobile app and rewrote it to Flutter. Also worked on website and app design.',
       },
       blacktree: {
-        company: 'BLACK TREE GAMING LIMITED',
-        position: 'Frontend Web Developer',
-        period: 'April 2022 - March 2023',
-        location: 'London, UK',
-        description: 'Created new websites and improved legacy code. Worked on desktop and mobile applications. Desktop apps were written on Electron.',
+        company: 'Black Tree Gaming Ltd',
+        position: 'Fullstack Developer',
+        period: 'April 2022 — March 2023',
+        location: 'Kazakhstan',
+        description:
+          'Created new websites and improved legacy projects. Worked on desktop applications with Electron and mobile apps with Flutter.',
       },
       invivo: {
-        company: 'INVIVO LLP',
+        company: 'Invivo Laboratory',
         position: 'HTML Developer',
-        period: 'December 2021 - March 2022',
-        location: 'Almaty, Kazakhstan',
-        description: 'Created landing pages and improved existing websites. Worked with legacy code and implemented various technologies. Worked with 3D.',
+        period: 'December 2021 — March 2022',
+        location: 'Kazakhstan',
+        description:
+          'Built landing pages and improved existing websites. Worked with legacy code and implemented various technologies. Also worked with 3D.',
       },
     },
   },

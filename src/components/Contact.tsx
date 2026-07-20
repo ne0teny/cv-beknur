@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Mail, Phone, Linkedin, MapPin } from 'lucide-react';
+import { Mail, Phone, Linkedin, MapPin, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import './Contact.scss';
 
@@ -29,27 +29,39 @@ const Contact = () => {
     {
       icon: <Mail size={28} />,
       title: 'Email',
-      value: 'sailaukhanbeknur@gmail.com',
-      link: 'mailto:sailaukhanbeknur@gmail.com'
+      value: 'beknurbloody@gmail.com',
+      link: 'mailto:beknurbloody@gmail.com',
     },
     {
       icon: <Phone size={28} />,
       title: t.contact.phone,
-      value: '+7 765 311 600',
-      link: 'tel:+77765311600'
+      value: '+7 776 531-16-00',
+      link: 'tel:+77765311600',
+    },
+    {
+      icon: <MessageCircle size={28} />,
+      title: t.contact.telegram,
+      value: '@idhoroso',
+      link: 'https://t.me/idhoroso',
+    },
+    {
+      icon: <Phone size={28} />,
+      title: t.contact.whatsapp,
+      value: '+7 776 531-16-00',
+      link: 'https://wa.me/77765311600',
     },
     {
       icon: <Linkedin size={28} />,
       title: 'LinkedIn',
       value: 'Beknur Sailaukhan',
-      link: 'https://www.linkedin.com/in/beknursailaukhan-6505712ba'
+      link: 'https://www.linkedin.com/in/beknursailaukhan-6505712ba',
     },
     {
       icon: <MapPin size={28} />,
       title: t.contact.location,
-      value: language === 'ru' ? 'Алматы, Казахстан' : 'Almaty, Kazakhstan',
-      link: null
-    }
+      value: language === 'ru' ? 'Казахстан' : 'Kazakhstan',
+      link: null,
+    },
   ];
 
   return (
